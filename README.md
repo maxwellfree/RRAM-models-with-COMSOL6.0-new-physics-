@@ -1,7 +1,7 @@
-Transient Simulation Tool for Resistive RAM Reset Processes
+Transient Simulation Tool for RRAM Reset Processes
 
 Why this work?
-An essential aspect of the reset process in RRAM is the thermal inertia of the filament during cooling. When the applied voltage pulse decreases, the filament does not cool synchronously with the voltage waveform. Instead, its temperature exhibits a delayed tail: the decay of temperature is slower than the decay of the driving voltage that generates the heat. This thermal lag means that, for a given voltage drop, the filament temperature remains higher than it would if the cooling were instantaneous. As a result, the filament spends more time at elevated temperatures. Since filament dissolution follows an Arrhenius-type dependence on activation energy, the removal of filament material is exponentially accelerated with temperature. Consequently, these thermal inertia tails become fundamental to the reset process. They ensure that the filament is reduced more rapidly and irreversibly once the hysteresis loop is entered, providing a realistic explanation of why filament rupture accelerates during reset. Without considering this effect, simulations would fail to capture the physics of the process and would underestimate the rate of filament destruction.
+An essential aspect of the reset process in resistive random-access memory (RRAM) is the thermal inertia of the filament during cooling. When the applied voltage pulse decreases, the filament does not cool synchronously with the voltage waveform. Instead, its temperature exhibits a delayed tail: the decay of temperature is slower than the decay of the driving voltage that generates the heat. This thermal lag means that, for a given voltage drop, the filament temperature remains higher than it would if the cooling were instantaneous. As a result, the filament spends more time at elevated temperatures. Since filament dissolution follows an Arrhenius-type dependence on activation energy, the removal of filament material is exponentially accelerated with temperature. Consequently, these thermal inertia tails become fundamental to the reset process. They ensure that the filament is reduced more rapidly and irreversibly once the hysteresis loop is entered, providing a realistic explanation of why filament rupture accelerates during reset. Without considering this effect, simulations would fail to capture the physics of the process and would underestimate the rate of filament destruction.
 
 It is important to note that these thermal inertia tails are real, experimentally observed, and measured in the laboratory. They can only be modeled through two possible approaches:
 
@@ -10,7 +10,7 @@ It is important to note that these thermal inertia tails are real, experimentall
 
 The first approach is unphysical, as it artificially adds matter that does not exist. The second approach, based on nonlinear transport, is more realistic and provides a consistent explanation of the observed hysteresis and accelerated filament rupture. 
 
-This work specifically addresses this matter by implementing nonlinear heat transport physics, ensuring that the experimentally observed thermal inertia and accelerated filament rupture are captured realistically in the reset process of resistive RAM.
+This work specifically addresses this matter by implementing nonlinear heat transport physics, ensuring that the experimentally observed thermal inertia and accelerated filament rupture are captured realistically in the reset process of RRAM.
 
 Introduction
 
@@ -21,7 +21,7 @@ Our updated model resolves this by explicitly considering nonlinear thermal tran
 The following video explains this issue: https://drive.upm.es/s/gG7RfgdbLpwyNDK
 
 The Repository
-This repository (https://github.com/maxwellfree/RRAM-models-with-COMSOL6.0-new-physics-) contains tools and scripts for the transient simulation of resistive random-access memory (RRAM) devices undergoing a reset process — the physical destruction of a conductive filament within the dielectric layer.
+This repository (https://github.com/maxwellfree/RRAM-models-with-COMSOL6.0-new-physics-) contains tools and scripts for the transient simulation of RRAM devices undergoing a reset process — the physical destruction of a conductive filament within the dielectric layer.
 
 This repository contains the essential components required for transient simulations of resistive random-access memory devices during the reset process. It includes two MATLAB scripts: connect.m, which establishes the connection between MATLAB and the COMSOL Multiphysics server, and FindResetTrans.m, which runs the transient simulation of filament rupture while tracking temperature, voltage, and current. The COMSOL model file Ni-HfO2-Si.mph provides the device geometry and standard physics for the RRAM cell, while RRAMNonLinear6_2.mphphb introduces the new nonlinear heat transport physics developed to realistically capture hysteresis and accelerated filament destruction. Together with the licensing information and documentation files, these components form a complete environment for studying and reproducing reset dynamics in RRAM devices.
 
