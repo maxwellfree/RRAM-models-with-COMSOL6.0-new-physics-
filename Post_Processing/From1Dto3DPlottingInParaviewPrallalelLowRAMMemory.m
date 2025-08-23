@@ -261,7 +261,7 @@ function [filesSorted, idxNums] = sortFilesByTrailingNumber(files)
     idxNums(~hasNum) = idxNums(orderStr);
 end
 
-%% Example 1: Basic configuration (128^3 grid, no padding)
+%% Example 1: Basic configuration (400*256^3 grid, no padding)
 % inputDir    = '/home/moreno/Desktop/TODO/Transitorio/results/non-lineal/cal7.5E-6s';
 % filePattern = 'profileIvsTime*.txt';   % e.g., profileIvsTime0.txt, profileIvsTime1.txt, ...
 % outputDir   = '/home/moreno/Desktop/TODO/Transitorio/results/non-lineal/cal7.5E-6s/3D';
